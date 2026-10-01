@@ -1,0 +1,16 @@
+# Dependencies of the results pipeline (pipeline/run.py, stages 1-5): processing of the model runs,
+# uncertainty estimation and the selective-prediction classifiers. Python 3.11.
+pandas==2.3.3
+numpy==1.26.4
+openpyxl==3.1.5
+scikit-learn==1.7.2
+scipy==1.15.3
+loguru==0.7.3
+tqdm==4.67.2
+sqlglot==27.29.0
+SQLAlchemy==2.0.46
+psutil==7.2.2
+llama-index-core==0.14.25
+torch==2.9.1
+torchmetrics==0.10.3
+setuptools<81  # torchmetrics 0.10.3 imports pkg_resources

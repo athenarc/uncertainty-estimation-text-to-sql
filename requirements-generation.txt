@@ -1,0 +1,6 @@
+# Additional dependencies of the generation stages (step 1: inference/run_model.py), which run the Text-to-SQL models
+# on GPUs. The analysis stages only need requirements.txt.
+-r requirements.txt
+vllm==0.14.1
+transformers==4.57.6
+func_timeout==4.3.5
