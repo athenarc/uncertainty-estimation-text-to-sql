@@ -14,7 +14,10 @@ import re
 from text_to_sql.prompt_templates.text_to_sql_task.PromptABC import PromptABC
 
 
-# prompt similar to https://github.com/kckevinchen/RTS-SQL/blob/main/template/candidate_selection.txt
+# Source: https://github.com/kckevinchen/RTS-SQL/blob/main/template/candidate_selection.txt
+# Copyright: <TODO>
+# Licensed under: <TODO> (full text in THIRD_PARTY_LICENSES)
+# Modified: <TODO>
 
 class PTruePrompt:
 

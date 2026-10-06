@@ -1,5 +1,5 @@
 """
-Prompt of the OmniSQL model, used with its schema/value-linking component (see text_to_sql/utils/omnisql_utils/).
+Prompt of the OmniSQL model, used with its schema/value-linking component (see text_to_sql/utils/omnisql_adapter.py).
 
 The prompt format is the one provided in the OmniSQL repository, from:
 Haoyang Li, Shang Wu, Xiaokang Zhang, Xinmei Huang, Jing Zhang, Fuxin Jiang, Shuai Wang, Tieying Zhang, Jianjun Chen,
@@ -20,7 +20,7 @@ from evaluated_datasets.ambiqt.ambiqt import AmbiQTDataset
 from evaluated_datasets.bird.bird import BirdDataset
 from evaluated_datasets.spider.spider import SpiderDataset
 from evaluated_datasets.trustsql.trustsql import TrustSQLDataset
-from text_to_sql.utils.omnisql_utils.omni_sql_schema_retriever import (
+from text_to_sql.utils.omnisql_adapter import (
     deduplicate_dicts,
     obtain_db_details,
     obtain_db_info_from_sqlite,
@@ -224,7 +224,7 @@ Take a deep breath and think step by step to find the correct SQL query.
     def get_omnisql_db_schema(self, question: str, db_path: str, hint: str = "") -> str:
         """Build the OmniSQL DDL schema string for a given question and database.
 
-        Mirrors the logic from prepare_input_output_pairs in omni_sql_schema_retriever.py,
+        Mirrors the logic from prepare_input_output_pairs in OmniSQL's process_dataset.py,
         adapted to use the caches pre-loaded in __init__ instead of the batch structures
         from the original __main__ block.
 
@@ -319,7 +319,10 @@ Take a deep breath and think step by step to find the correct SQL query.
         ]
 
     def get_predicted_sql(self, response: str) -> [str, None]:
-        # Extraction method from https://github.com/RUCKBReasoning/OmniSQL/blob/main/train_and_evaluate/infer.py
+        # Source: https://github.com/RUCKBReasoning/OmniSQL/blob/main/train_and_evaluate/infer.py
+        # Copyright: <TODO>
+        # Licensed under: <TODO> (full text in THIRD_PARTY_LICENSES)
+        # Modified: <TODO>
         pattern = r"```sql\s*(.*?)\s*```"
     
         sql_blocks = re.findall(pattern, response, re.DOTALL)

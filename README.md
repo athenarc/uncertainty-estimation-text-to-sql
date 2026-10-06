@@ -22,17 +22,27 @@ pip install -r requirements.txt            # everything needed by step 2 (the pi
 pip install -r requirements-generation.txt # additionally, only to run the Text-to-SQL models yourself (step 1)
 ```
 
+### Third-party code to download (OmniSQL, XiYan M-Schema and RTS-SQL)
+
+Some upstream files are not included in this repository:
+
+- `text_to_sql/utils/omnisql_utils/` and `text_to_sql/utils/xiyan_utils/`: only needed to run the OmniSQL and XiYan
+  models yourself (step 1). Follow [text_to_sql/utils/README.md](text_to_sql/utils/README.md).
+- `uncertainty_methods/logit_based/rts_sql/execution_entropy.py`: needed for the execution entropy uncertainty
+  (step 2). Follow [uncertainty_methods/logit_based/rts_sql/README.md](uncertainty_methods/logit_based/rts_sql/README.md).
+
+### Download the datasets
+
+Both steps execute SQL queries against the original benchmark databases. Follow the README of each dataset to download
+it into its `storage/` folder: [Spider](evaluated_datasets/spider/README.md), [BIRD](evaluated_datasets/bird/README.md),
+[AmbiQT](evaluated_datasets/ambiqt/README.md), [Ambrosia](evaluated_datasets/ambrosia/README.md),
+[TrustSQL](evaluated_datasets/trustsql/README.md).
+
 ## Step 1: the inference results
 
 The pipeline of step 2 starts from the *inference results*: the raw outputs of the Text-to-SQL models (the SQL
 generations with their token logprobs). To reproduce them, create the
 inference results with step 1 and the result files with step 2.
-
-**Benchmark databases.** Both steps execute SQL queries against the original databases. Follow the README of each
-dataset to download it into its `storage/` folder:
-[Spider](evaluated_datasets/spider/README.md), [BIRD](evaluated_datasets/bird/README.md),
-[AmbiQT](evaluated_datasets/ambiqt/README.md), [Ambrosia](evaluated_datasets/ambrosia/README.md),
-[TrustSQL](evaluated_datasets/trustsql/README.md).
 
 **Run the generation models** (GPUs and vLLM, `requirements-generation.txt`) with
 [`inference/run_model.py`](inference/run_model.py):

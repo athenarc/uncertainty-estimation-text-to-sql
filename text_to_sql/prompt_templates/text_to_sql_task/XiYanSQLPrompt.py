@@ -13,7 +13,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import NoSuchTableError
 from tqdm import tqdm
 
-from text_to_sql.utils.xiyan_utils.schema_engine import SchemaEngine
+from text_to_sql.utils.xiyan_adapter import SchemaEngine
 from text_to_sql.prompt_templates.text_to_sql_task.PromptABC import PromptABC
 from evaluated_datasets.spider.spider import SpiderDataset
 

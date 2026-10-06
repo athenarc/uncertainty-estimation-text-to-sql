@@ -1,5 +1,3 @@
-# Code from lm_polygraph/metrics/ue_metrics/roc_auc.py
-
 import numpy as np
 from sklearn.metrics import roc_auc_score
 

@@ -47,3 +47,8 @@ evaluated_datasets/trustsql/storage/
 .pytest_cache/
 /pytest.ini
 /requirements-dev.txt
+
+# Third-party code downloaded by the user (see text_to_sql/utils/README.md and uncertainty_methods/logit_based/rts_sql/README.md)
+text_to_sql/utils/omnisql_utils/
+text_to_sql/utils/xiyan_utils/
+uncertainty_methods/logit_based/rts_sql/execution_entropy.py

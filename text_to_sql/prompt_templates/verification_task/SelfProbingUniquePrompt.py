@@ -11,7 +11,10 @@ The prompt is the P(True) prompt (see PTruePrompt.py) extended with the request 
 import re
 from text_to_sql.prompt_templates.text_to_sql_task.PromptABC import PromptABC
 
-# prompt similar to https://github.com/kckevinchen/RTS-SQL/blob/main/template/candidate_selection.txt
+# Source: https://github.com/kckevinchen/RTS-SQL/blob/main/template/candidate_selection.txt
+# Copyright: <TODO>
+# Licensed under: <TODO> (full text in THIRD_PARTY_LICENSES)
+# Modified: <TODO>
 
 class SelfProbingUniquePrompt:
     """Ask the model to self-evaluate how confident it is that a SQL query answers a question.
